@@ -1,0 +1,24 @@
+{
+	"geode": "4.9.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "ecuet.disliked_level_roulette",
+	"name": "Disliked level roulette",
+	"version": "v1.0.0",
+	"developer": "ecuet",
+	"description": "adds roulette of disliked levels, thanks undefined06855 for LoadLevelPopup",
+	"resources": {
+        "sprites": [
+            "resources/gamble.png"
+        ]
+    },
+	"tags": [
+		"modtober25",
+		"online",
+		"content"
+	]
+}
