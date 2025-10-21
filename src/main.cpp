@@ -34,8 +34,7 @@ std::vector<int> OriginalLevels = {
 };
 
 std::vector<int> Levels = OriginalLevels;
-// TODO: add played level list
-// loadlevelpopup crashed game on level info page
+
 int CurrentBest = 0;
 int CurrentLevel = 0;
 int tempBest = 0;
@@ -144,11 +143,21 @@ public:
     bool init() {
         if (!MenuLayer::init()) return false;
 
-        auto morebutton = this->getChildByID("more-games-menu")->getChildByID("more-games-button");
+        auto menu = this->getChildByID("more-games-menu");
+        if (menu) {
+            auto morebutton = menu->getChildByID("more-games-button");
+            if (morebutton) {
+                CCSprite* sprite = CCSprite::create("gamble.png"_spr);
 
-        CCSprite* sprite = CCSprite::create("gamble.png"_spr);
-       
-        static_cast<CCMenuItemSpriteExtra*>(morebutton)->setNormalImage(sprite);
+                static_cast<CCMenuItemSpriteExtra*>(morebutton)->setNormalImage(sprite);
+            }
+    
+        }
+        else {
+            log::info("menu wasnt found");
+        }
+
+ 
         
 
         return true;
@@ -158,7 +167,7 @@ public:
 class $modify(LevelInfoLayer) {
 public:
     void onEnterTransitionDidFinish() {
-        log::info("onexit fr");
+  
 
         LevelInfoLayer::onEnterTransitionDidFinish();
       //  CCDirector::get()->pushScene(MenuLayer::scene(false));
