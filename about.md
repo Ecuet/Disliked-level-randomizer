@@ -1,6 +1,7 @@
 # The perfect roulette i think
 
-It adds roulette of random disliked levels, you have to go to 100% from zero
+This mod adds a roulette of random disliked levels (by players not me),
+Your main goal is to reach 100% from zero.
 
 # Credits
 
