@@ -134,6 +134,23 @@ void NewBest(int best,bool returnBack) {
 
 class $modify(MyMenuLayer, MenuLayer) {
 public:
+    void changemoreGameButton() {
+        auto menu = this->getChildByID("more-games-menu");
+        if (menu) {
+            auto morebutton = menu->getChildByID("more-games-button");
+            if (morebutton) {
+                CCSprite* sprite = CCSprite::create("gamble.png"_spr);
+
+                static_cast<CCMenuItemSpriteExtra*>(morebutton)->setNormalImage(sprite);
+
+                morebutton->setVisible(true);
+            }
+        }
+        else {
+            log::info("menu wasnt found");
+        }
+    }
+
     void onMoreGames(CCObject * sender) {
         OpenPopup(false);
         RoulleteStarted = true;
@@ -142,21 +159,7 @@ public:
 
     bool init() {
         if (!MenuLayer::init()) return false;
-
-        auto menu = this->getChildByID("more-games-menu");
-        if (menu) {
-            auto morebutton = menu->getChildByID("more-games-button");
-            if (morebutton) {
-                CCSprite* sprite = CCSprite::create("gamble.png"_spr);
-
-                static_cast<CCMenuItemSpriteExtra*>(morebutton)->setNormalImage(sprite);
-            }
-    
-        }
-        else {
-            log::info("menu wasnt found");
-        }
-
+        changemoreGameButton();
  
         
 
@@ -185,6 +188,7 @@ public:
             LevelInfoLayer::onPlay(sender);
         }
     }
+
 };
 
 

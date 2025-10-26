@@ -1,5 +1,6 @@
 #include "LoadLevelPopup.hpp"
 
+
 LoadLevelPopup* LoadLevelPopup::create(unsigned int levelID) {
     auto ret = new LoadLevelPopup;
     if (ret->initAnchored(360.f, 100.f, levelID)) {
@@ -25,7 +26,7 @@ bool LoadLevelPopup::setup(unsigned int levelID) {
     m_message->setScale(.7f);
     m_message->setID("content");
     m_mainLayer->addChildAtPosition(m_message, geode::Anchor::Center);
-
+    
     m_closeBtn->setVisible(false);
 
     glm->m_levelManagerDelegate = this;
@@ -50,7 +51,6 @@ bool LoadLevelPopup::setup(unsigned int levelID) {
 
 void LoadLevelPopup::loadLevelsFinished(cocos2d::CCArray* levels, char const* p1, int p2) {
     // donezo funzo
-    geode::log::info("donezo funzo with {}", m_id);
     auto glm = GameLevelManager::get();
     glm->m_levelManagerDelegate = nullptr;
 
@@ -63,7 +63,8 @@ void LoadLevelPopup::loadLevelsFinished(cocos2d::CCArray* levels, char const* p1
     }
 
     auto scene = cocos2d::CCTransitionFade::create(.5f, LevelInfoLayer::scene(static_cast<GJGameLevel*>(levels->objectAtIndex(0)), false));
-    cocos2d::CCDirector::get()->pushScene(scene);
+    cocos2d::CCDirector::get()->replaceScene(scene);
+    
     m_allowClose = true;
   //  Popup::onClose(nullptr);
 }
