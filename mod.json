@@ -8,9 +8,9 @@
 	},
 	"id": "ecuet.disliked_level_roulette",
 	"name": "Disliked level roulette",
-	"version": "v1.0.1",
+	"version": "v1.0.2",
 	"developer": "ecuet",
-	"description": "adds roulette of disliked levels, thanks undefined06855 for LoadLevelPopup",
+	"description": "Adds roulette of random disliked levels",
 	"resources": {
         "sprites": [
             "resources/gamble.png"
