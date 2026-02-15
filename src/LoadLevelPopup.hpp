@@ -1,9 +1,9 @@
-#pragma once
+ #pragma once
 
-class LoadLevelPopup : public geode::Popup<unsigned int>, public LevelManagerDelegate {
+class LoadLevelPopup : public geode::Popup, public LevelManagerDelegate {
 public:
     static LoadLevelPopup* create(unsigned int levelID);
-    bool setup(unsigned int levelID);
+    bool init(int value);
 
     cocos2d::CCLabelBMFont* m_message;
     bool m_allowClose;
