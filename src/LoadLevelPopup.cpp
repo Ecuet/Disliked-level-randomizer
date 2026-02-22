@@ -1,5 +1,14 @@
  #include "LoadLevelPopup.hpp"
+#include "Geode/loader/Log.hpp"
+#include <Geode/binding/GameLevelManager.hpp>
 
+
+LoadLevelPopup::~LoadLevelPopup(){
+    auto glm = GameLevelManager::get();
+    if(glm->m_levelManagerDelegate == nullptr){
+        glm->m_levelManagerDelegate = nullptr;
+    }
+}
 
  LoadLevelPopup* LoadLevelPopup::create(unsigned int levelID) {
      auto ret = new LoadLevelPopup;

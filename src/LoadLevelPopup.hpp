@@ -2,6 +2,8 @@
 
 class LoadLevelPopup : public geode::Popup, public LevelManagerDelegate {
 public:
+    ~LoadLevelPopup();
+
     static LoadLevelPopup* create(unsigned int levelID);
     bool init(int value);
 
