@@ -8,7 +8,7 @@
 	},
 	"id": "ecuet.disliked_level_roulette",
 	"name": "Disliked level roulette",
-	"version": "v1.0.3",
+	"version": "v1.0.4",
 	"developer": "ecuet",
 	"description": "Adds roulette of random disliked levels",
 	"resources": {
