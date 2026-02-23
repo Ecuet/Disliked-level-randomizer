@@ -5,7 +5,7 @@
 
 LoadLevelPopup::~LoadLevelPopup(){
     auto glm = GameLevelManager::get();
-    if(glm->m_levelManagerDelegate == nullptr){
+    if(glm->m_levelManagerDelegate == this){
         glm->m_levelManagerDelegate = nullptr;
     }
 }
@@ -13,7 +13,7 @@ LoadLevelPopup::~LoadLevelPopup(){
  LoadLevelPopup* LoadLevelPopup::create(unsigned int levelID) {
      auto ret = new LoadLevelPopup;
      if (ret->init(levelID)) {
-         ret->autorelease();
+       //  ret->autorelease();
          return ret;
      }
 
