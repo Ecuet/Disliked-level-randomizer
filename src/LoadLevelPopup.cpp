@@ -13,7 +13,7 @@ LoadLevelPopup::~LoadLevelPopup(){
  LoadLevelPopup* LoadLevelPopup::create(unsigned int levelID) {
      auto ret = new LoadLevelPopup;
      if (ret->init(levelID)) {
-         ret->autorelease();
+       //  ret->autorelease();
          return ret;
      }
 
@@ -52,6 +52,8 @@ LoadLevelPopup::~LoadLevelPopup(){
                  m_message->setScale(.575f);
                  m_allowClose = true;
                  m_closeBtn->setVisible(true);
+
+                 this->release();
              })
          )
      );
@@ -71,6 +73,7 @@ LoadLevelPopup::~LoadLevelPopup(){
          geode::Notification::create(fmt::format("No level found with ID {}!", m_id), geode::NotificationIcon::Error)->show();
          m_allowClose = true;
          //Popup::onClose(nullptr);
+         this->release();
          return;
      }
 
@@ -78,6 +81,7 @@ LoadLevelPopup::~LoadLevelPopup(){
      cocos2d::CCDirector::get()->replaceScene(scene);
     
      m_allowClose = true;
+     this->release();
    
  }
 
@@ -92,6 +96,7 @@ LoadLevelPopup::~LoadLevelPopup(){
      geode::Notification::create(fmt::format("No level found with ID {}!", m_id), geode::NotificationIcon::Error)->show();
      m_allowClose = true;
      Popup::onClose(nullptr);
+     this->release();
  }
 
  void LoadLevelPopup::loadLevelsFailed(char const* p0) {
@@ -102,4 +107,5 @@ LoadLevelPopup::~LoadLevelPopup(){
      if (!m_allowClose) return;
     
      Popup::onClose(sender);
+     this->release();
  }
