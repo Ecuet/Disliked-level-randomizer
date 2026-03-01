@@ -95,7 +95,7 @@ LoadLevelPopup::~LoadLevelPopup(){
      glm->m_levelManagerDelegate = nullptr;
      geode::Notification::create(fmt::format("No level found with ID {}!", m_id), geode::NotificationIcon::Error)->show();
      m_allowClose = true;
-     Popup::onClose(nullptr);
+    // Popup::onClose(nullptr);
      this->release();
  }
 
@@ -106,6 +106,6 @@ LoadLevelPopup::~LoadLevelPopup(){
  void LoadLevelPopup::onClose(cocos2d::CCObject* sender) {
      if (!m_allowClose) return;
     
-     Popup::onClose(sender);
+     //Popup::onClose(sender);
      this->release();
  }
