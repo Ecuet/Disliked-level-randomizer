@@ -70,7 +70,7 @@ void Gamble::Skip() {
 
         if (auto pl = PlayLayer::get()) {
                 if(CurrentBest >= 99) {
-                    FLAlertLayer::create("nuh uh","you cant skip 99%",":sob:");
+                    FLAlertLayer::create("nuh uh","you cant skip 99%",":sob:")->show();
                     return;
                 }
                 ++CurrentBest;
